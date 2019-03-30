@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+     <link rel="stylesheet" href="libs/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/style.css">
+
+    <title>Вход</title>
+  </head>
+  <body class="singin">
+    <div id="app">
+      <div class="container">
+        <div class="d-flex justify-content-center h-100">
+          <div class="card">
+
+            <div class="card-header">
+              <h3>Вход</h3>
+            </div>
+
+            <div class="card-body">
+              <form>
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                  </div>
+                  <input type="text" v-model="username" class="form-control" placeholder="username">                  
+                </div>
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                  </div>
+                  <input type="password" v-model="password" class="form-control" placeholder="password">
+                </div>
+                <div class="row align-items-center remember">
+                  <input type="checkbox">Запомнить меня</div>
+                <div class="form-group">
+                  <button type="button" value="Login" v-on:click="InputClick" class="btn float-right login_btn">Login</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="card-footer">
+              <div class="d-flex justify-content-center links">
+                Вход на сайт аптеки
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script lang="JavaScript" src="libs/jquery-3.3.1.min.js"></script>
+    <script lang="JavaScript" src="libs/popper.min.js"></script>
+    <script lang="JavaScript" src="libs/bootstrap.min.js"></script>
+    <script lang="JavaScript" src="libs/vue.js"></script>
+    <script type="text/javascript">
+      var app = new Vue({
+        el:"#app",
+        data:{
+          username:null,
+          password:null,
+          users: [
+            {name:"Мария",login:"Maria",Password:"123",Role:"admin"},
+            {name:"Елена",login:"Elena",Password:"123",Role:"admin"}
+          ]
+
+        },
+        methods:{
+          InputClick(){
+            for(let i =0;i<this.users.length;i++){
+              if(this.users[i].login === this.username){
+                localStorage.setItem("activeUser", JSON.stringify(this.users[i]));
+                window.location.href = "pages/main.html";
+              }
+            }
+          },
+
+        }
+      })
+    </script>
+  </body>
+</html>

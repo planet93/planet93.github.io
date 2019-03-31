@@ -1,3 +1,27 @@
+@media screen and (max-width: 480px){
+    .myhidden{
+        display: none;
+    }
+    h4{
+        font-size: 1.2rem;
+    }
+    .img-modal {
+        max-height: 360px;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+}
+@media only screen and (min-width:481px) {
+    .img-modal {
+        max-height: 600px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+}
 html,body{
 background-size: cover;
 background-repeat: no-repeat;
@@ -50,4 +74,73 @@ width: 100px;
 .login_btn:hover{
 color: black;
 background-color: white;
+}
+.mynavbar{
+    background-color: black;
+    background-color: rgba(0,0,0,.4);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999999;
+    display: block;
+    transition: 2s;
+}
+.navbar-a {
+    margin: 5px;
+    margin-left: 20px;
+}
+.btn-circle {
+    background-color: white;
+    background-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    padding: .3rem .3rem .2rem .3rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border-width: 2px;
+    transition: .7s;
+}
+.clr-white {
+    color: #fff;
+    border: solid 3px #fff;
+    border-color: #fff;
+}
+.clr-white:hover{
+    color: #fff;
+    background-color: #000;
+}
+.icon-size{
+	width: 25px;
+    height: 25px;
+}
+.navbar-a {
+    margin: 5px;
+    margin-left: 20px;
+}
+.main-img{
+	background-position: left bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 100%;
+}
+.clr-pal-desktop {
+    color: #fff;
+    border: solid 4px #fff;
+    border-color: #fff;
+    box-shadow: 1px 1px 3px #666, -1px -1px 3px #cfcfcf, 1px 1px #666, -1px -1px #cfcfcf;
+}
+.btn-circle-lg {
+    padding: 1.4rem 1.4rem 1.4rem 1.4rem;
+}
+.title-icon {
+    font-size: 15pt;
+    text-shadow: 1px 1px 3px #666, -1px -1px 3px #000, 1px 1px #666, -1px -1px #000;
+    color: #fff;
+}
+.icon-color {
+    text-shadow: 1px 1px 3px #666, -1px -1px 3px #000, 1px 1px #666, -1px -1px #000;
+    color: #fff;
+    height: 46px;
+    width: 46px;
 }

@@ -13,9 +13,35 @@
 	<title>Меню</title>
 </head>
 <body>
-<div id="app">
+<div id="app" class="main-img" :style="{ backgroundImage: `url('${img}')` }">
+	<header>
+		<nav class="mynavbar">
+			<a href="main.html" class="btn-circle clr-white cursor-pointer navbar-a">
+                    <i class="fa fa-home icon-size" title="Рабочий стол"></i>
+                </a>
+
+                <a href="../index.html" class="btn-circle clr-white cursor-pointer navbar-a float-right" style="    margin-right: 1rem">
+                    <i class="fa fa-times icon-size" aria-hidden="true"></i>
+                </a>
+
+            <span class="float-right myhidden" style="padding:0.8rem 0.5rem 0 0;color:white">
+                    Здравствуйте,
+                    <strong>{{username}}</strong>
+                </span>
+		</nav>
+	</header>
+
 	<div class="container">
-		<h1>Добро пожаловать, {{username}}</h1>
+		<div class="row" style="padding-top: 80px;">
+				<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="text-align: center;" v-for="item in menuShow">
+					<div>
+						<p class="title-icon">{{item.Name}}</p>
+			            <a v-bind:href="item.link" class="clr-pal-desktop btn-circle-lg btn-circle cursor-pointer">
+			                <i v-bind:class="[item.icon_class,'icon-color']" style="font-size:35pt"></i>
+			            </a>
+					</div>
+				</div>
+		</div>
 	</div>
 </div>
 
@@ -31,21 +57,46 @@
 	    	data:{
 	    		user:null,
 	    		username:null,
+	    		rnd:0,
+	    		menuItems: [
+                    { Name: "Препараты", link: "/Classifier/Index", icon_class:"fa fa-folder-o", Role:"admin" },
+                    { Name: "Покупка", link: "/Classifier/Mapping", icon_class:"fa fa-cart-plus",Role:"admin" },
+                    //{ Name: "Обходы", link: "/Perambulation", icon_class:"fa fa-hand-o-right" },
+                    { Name: "Аналитика", link: "/Classifier/Discrepancy", icon_class: "fa fa-line-chart",Role:"admin" },
+                    { Name: "Пользователи", link: "/Classifier/ManagementUsers", icon_class:"fa fa-user",Role:"admin"},
+                    { Name: "Карточка", link: "/Classifier/ManagementUsers", icon_class:"fa fa-address-book",Role:"user"},
+                    { Name: "Ваши покупки", link: "/Classifier/ManagementUsers", icon_class:"fa fa-shopping-bag",Role:"user"},
+                ],
+                menuShow:[],
 	    	},
 	    	methods:{
 	    		initPage(){
+	    			this.rnd = getRandomInt(0, 2);
 	    			this.user = JSON.parse(localStorage.getItem("activeUser"));
 	    			console.log(this.user);
 	    			this.username = this.user.name;
+
+	    			for(let i=0;i<this.menuItems.length;i++){
+	    				if(this.user.Role === this.menuItems[i].Role){
+	    					this.menuShow.push(this.menuItems[i]);
+	    				}
+	    			}
 	    		}
 
 	    	},
+	    	computed: {
+				img() {
+					return `../img/bg-00${this.rnd}.jpg`;
+				}
+			},
 	    	mounted(){
 	    		this.initPage();
 
 	    	}
     	})
-    	
+    	function getRandomInt(min, max) {
+		    return Math.floor(Math.random() * (max - min + 1) + min);
+		}
     </script>
 </body>
 </html>

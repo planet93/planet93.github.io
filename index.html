@@ -71,11 +71,13 @@
           username:null,
           password:null,
           users: [
-            {name:"Мария",login:"Maria",Password:"123",Role:"admin"},
-            {name:"Елена",login:"Elena",Password:"123",Role:"admin"},
-            {name:"Алина",login:"Alina",Password:"123",Role:"admin"},
-            {name:"Иван",login:"Ivan",Password:"123",Role:"user"},
-            {name:"Петр",login:"Petr",Password:"123",Role:"user"}
+            {name:"Мария",login:"Maria",Password:"123",Role:"admin",id:1},
+            {name:"Елена",login:"Elena",Password:"123",Role:"admin",id:2},
+            {name:"Алина",login:"Alina",Password:"123",Role:"admin",id:3},
+            {name:"Иван",login:"Ivan",Password:"123",Role:"user",id:4},
+            {name:"Петр",login:"Petr",Password:"123",Role:"user",id:5},
+            {name:"Сергей Васькин",login:"Serg",Password:"123",Role:"user",id:6},
+            {name:"Василий Петров",login:"Vasiliy",Password:"123",Role:"user",id:7}
           ]
 
         },
@@ -87,9 +89,13 @@
                 window.location.href = "pages/main.html";
               }
             }
-          },
+            
+          },    
+        },
+        mounted(){
+            localStorage.setItem("users", JSON.stringify(this.users));
+          }
 
-        }
       })
     </script>
   </body>

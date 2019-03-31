@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
+     <link rel="stylesheet" href="../libs/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/style.css">
+
+	<title>Пользователи</title>
+</head>
+<body>
+<div id="app">
+	<header>
+		<nav class="mynavbar">
+			<a href="main.html" class="btn-circle clr-white cursor-pointer navbar-a">
+                    <i class="fa fa-home icon-size" title="Рабочий стол"></i>
+                </a>
+                <a href="main.html" class="btn-circle clr-white cursor-pointer navbar-a">
+                    <i class="fa fa-long-arrow-left icon-size" title="Назад"></i>
+                </a>
+
+                <a href="../index.html" class="btn-circle clr-white cursor-pointer navbar-a float-right" style="    margin-right: 1rem">
+                    <i class="fa fa-times icon-size" aria-hidden="true"></i>
+                </a>
+
+            <span class="float-right myhidden" style="padding:0.8rem 0.5rem 0 0;color:white">
+                    Здравствуйте,
+                    <strong>{{username}}</strong>
+                </span>
+		</nav>
+	</header>
+	
+	<div class="container" style="padding-top: 80px;">
+		<h3>Пользователи</h3>
+		<div class="row">
+			
+		</div>
+		<div class="row">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>ФИО</th>
+						<th>Логин</th>
+						<th>Роль</th>
+					</tr>					
+				</thead>
+				<tbody>
+					<tr v-for="item in users">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.login}}</td>
+						<td>{{item.Role}}</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+	</div>
+
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script lang="JavaScript" src="../libs/jquery-3.3.1.min.js"></script>
+    <script lang="JavaScript" src="../libs/popper.min.js"></script>
+    <script lang="JavaScript" src="../libs/bootstrap.min.js"></script>
+    <script lang="JavaScript" src="../libs/vue.js"></script>
+    <script type="text/javascript">
+    	var app = new Vue({
+    		el:"#app",
+    		data:{
+    			username:null,
+    			users:[],
+    		},
+    		methods:{
+    			getUser(){
+    				this.user = JSON.parse(localStorage.getItem("activeUser"));
+    				this.users = JSON.parse(localStorage.getItem("users"));
+	    			this.username = this.user.name;
+    			}
+    		},
+    		mounted(){
+    			this.getUser();
+    		},
+
+    	})
+    </script>
+</body>
+</html>

@@ -144,3 +144,17 @@ background-color: white;
     height: 46px;
     width: 46px;
 }
+.widget-item {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    transition: .3s;
+    border: dotted 1px transparent;
+    padding-bottom: 30px;
+}
+.widget-item:hover {
+    background-color: white;
+    background-color: rgba(0,0,0,0.2);
+    border-style: dotted;
+    border-color: white;
+    border-radius: 6px; 
+}

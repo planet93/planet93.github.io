@@ -33,7 +33,7 @@
 
 	<div class="container">
 		<div class="row" style="padding-top: 80px;">
-				<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3" style="text-align: center;" v-for="item in menuShow">
+				<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 widget-item" style="text-align: center;" v-for="item in menuShow">
 					<div>
 						<p class="title-icon">{{item.Name}}</p>
 			            <a v-bind:href="item.link" class="clr-pal-desktop btn-circle-lg btn-circle cursor-pointer">
@@ -59,13 +59,13 @@
 	    		username:null,
 	    		rnd:0,
 	    		menuItems: [
-                    { Name: "Препараты", link: "/Classifier/Index", icon_class:"fa fa-folder-o", Role:"admin" },
-                    { Name: "Покупка", link: "/Classifier/Mapping", icon_class:"fa fa-cart-plus",Role:"admin" },
+                    { Name: "Препараты", link: "main.html", icon_class:"fa fa-folder-o", Role:"admin" },
+                    { Name: "Покупка", link: "shop.html", icon_class:"fa fa-cart-plus",Role:"admin" },
                     //{ Name: "Обходы", link: "/Perambulation", icon_class:"fa fa-hand-o-right" },
-                    { Name: "Аналитика", link: "/Classifier/Discrepancy", icon_class: "fa fa-line-chart",Role:"admin" },
-                    { Name: "Пользователи", link: "/Classifier/ManagementUsers", icon_class:"fa fa-user",Role:"admin"},
-                    { Name: "Карточка", link: "/Classifier/ManagementUsers", icon_class:"fa fa-address-book",Role:"user"},
-                    { Name: "Ваши покупки", link: "/Classifier/ManagementUsers", icon_class:"fa fa-shopping-bag",Role:"user"},
+                    { Name: "Аналитика", link: "main.html", icon_class: "fa fa-line-chart",Role:"admin" },
+                    { Name: "Пользователи", link: "users.html", icon_class:"fa fa-user",Role:"admin"},
+                    { Name: "Карточка", link: "main.html", icon_class:"fa fa-address-book",Role:"user"},
+                    { Name: "Ваши покупки", link: "main.html", icon_class:"fa fa-shopping-bag",Role:"user"},
                 ],
                 menuShow:[],
 	    	},
